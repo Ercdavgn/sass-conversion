@@ -1,1 +1,241 @@
-// main SASS file
+@import "_variables";
+@import "_mixins";
+
+%center {margin: 0 auto}
+%white {background:#fff}
+
+/*DEFAULTS*/
+.row,
+header nav,.clearfix:after {
+  clear: both
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  @include box-sizing(border-box);
+  &:after,
+  &:before {
+    @include box-sizing(inherit)
+  }
+}
+
+html {
+  font-size: 16px;
+  font-family: $sans-serif;
+  line-height: 1.6
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: $serif
+}
+
+ul {
+  list-style: none
+}
+
+.clearfix:after {
+  display: table;
+  content: ""
+}
+
+.bg-header {
+  background: $blue;
+  color: $drkgrey;
+  border-bottom: 1rem solid $medblue;
+  border-top: 1rem solid $drkblue;
+  position: relative;
+  &:after,
+  &:before {
+    content: "";
+    position: absolute;
+    bottom: -1rem;
+    width: 30%;
+    height: 1rem;
+    background: $drkblue
+  }
+  &:before {
+    left: 0
+  }
+  &:after {
+    right: 0
+  }
+}
+
+.bg-focal {
+  background: $brown;
+  color: $drkbrown
+}
+
+.bg-content1 {
+  @extend %white;
+  color: $drkgrey
+}
+
+.bg-content2 {
+  background: $blue;
+  color: $drkblue
+}
+
+.bg-footer {
+  @extend %white;
+  color: $grey
+}
+
+header {
+  width: 400px;
+  @extend %center;
+  position: relative;
+  & nav>ul li {
+    width: 100%;
+    float: none;
+    &>a {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      color: $drkgrey;
+      font-size: $sf;
+      letter-spacing: .25rem;
+      border: 1px solid $grey;
+      border-bottom: none;
+      padding: 1rem 2rem;
+      line-height: 1;
+      @extend %white;
+      &:hover {
+        font-weight: 700;
+        color: $drkbrown
+      }
+    }
+  }
+  & h1,
+  & nav {
+    width: 100%
+  }
+  & h1 {
+    padding: 0 2rem;
+    color: $drkbrown;
+    letter-spacing: .1rem;
+    & i.fa-lg {
+      display: block;
+      width: 25%;
+      float: left;
+      font-size: 7rem;
+      line-height: 12.7936rem;
+      color: $brown;
+      &~span {
+        float: right;
+        width: 75%;
+        font-size: $lf;
+        padding-left: 1rem;
+        text-align: right
+      }
+    }
+  }
+}
+
+section {
+  &.focal {
+    width: 400px;
+    @extend %center
+  }
+  &.content1,
+  &.content2 {
+    padding: 2rem 0
+  }
+}
+
+.col-2 {
+  width: 50%;
+  float: left;
+  padding-bottom: 2rem;
+  border-left: 1px solid $drkblue;
+  margin-bottom: 2rem
+}
+
+.focal {
+  & h2 {
+    font-size: $mf;
+    line-height: 1.2;
+    padding: 2rem 2rem 1rem
+  }
+  & .author {
+    font-size: $xsf;
+    padding: .2rem 2rem 2rem
+  }
+}
+
+.content1 {
+  & h3 {
+    font-size: $mf;
+    padding: .2rem 2rem 2rem;
+    & i {
+      vertical-align: middle;
+      padding-right: 2rem
+    }
+  }
+  & p {
+    font-size: $sf;
+    padding: .5rem 2rem 2rem
+  }
+}
+
+.content2 {
+  & h3 {
+    font-size: $mf;
+    padding: 1rem 2rem .5rem
+  }
+  & h4 {
+    font-size: $mf;
+    padding: 1rem 2rem 0
+  }
+}
+
+.content2 li,
+.content2 p,
+footer h4 {
+  font-size: $sf
+}
+
+.content2 p {
+  padding: .5rem 2rem 1rem
+}
+
+.content2 li,
+footer h4,
+footer p {
+  padding: .5rem 2rem
+}
+
+footer,
+header nav {
+  padding: 2rem 0
+}
+
+footer {
+  & .col-2:first-child {
+    border-left: 0
+  }
+  & h4 {
+    color: $drkbrown
+  }
+  & .fa-circle,
+  & p {
+    color: $drkgrey
+  }
+  & p {
+    font-size: $xsf
+  }
+  & h4[lang=de] {
+    display: block
+  }
+  & h4[lang=ar],
+  & h4[lang=en],
+  & h4[lang=ru] {
+    display: none
+  }
+}
+
+@import "_queries";
