@@ -1,0 +1,27 @@
+@mixin col($width, $float) {
+  width: $width;
+  float: $float;
+}
+
+@mixin box-sizing($ize) {
+  -webkit-box-sizing: $ize;
+  box-sizing: $ize
+}
+
+@mixin respond-to($media) {
+  @if $media==tablet {
+    @media only screen and (min-width: $tablet) {
+      @content;
+    }
+  }
+  @else if $media==desktop {
+    @media only screen and (min-width: $desktop) and (max-width: $widescreen - 1) {
+      @content;
+    }
+  }
+  @else if $media==widescreen {
+    @media only screen and (min-width: $widescreen) {
+      @content;
+    }
+  }
+}
